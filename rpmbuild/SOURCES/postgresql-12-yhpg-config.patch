@@ -1,0 +1,61 @@
+--- src/backend/utils/misc/postgresql.conf.sample	2020-01-15 15:37:00.565686280 +0800
++++ src/backend/utils/misc/postgresql.conf.sample	2020-01-15 15:43:40.068664417 +0800
+@@ -56,17 +56,17 @@
+
+ # - Connection Settings -
+
+-#listen_addresses = 'localhost'		# what IP address(es) to listen on;
++listen_addresses = '*'		# what IP address(es) to listen on;
+ 					# comma-separated list of addresses;
+ 					# defaults to 'localhost'; use '*' for all
+ 					# (change requires restart)
+-#port = 5432				# (change requires restart)
+-#max_connections = 100			# (change requires restart)
+-#superuser_reserved_connections = 3	# (change requires restart)
+-#unix_socket_directories = '/tmp'	# comma-separated list of directories
++port = 2777				# (change requires restart)
++max_connections = 300			# (change requires restart)
++superuser_reserved_connections = 5	# (change requires restart)
++unix_socket_directories = '/tmp'	# comma-separated list of directories
+ 					# (change requires restart)
+ #unix_socket_group = ''			# (change requires restart)
+-#unix_socket_permissions = 0777		# begin with 0 to use octal notation
++unix_socket_permissions = 0777		# begin with 0 to use octal notation
+ 					# (change requires restart)
+ #bonjour = off				# advertise server via Bonjour
+ 					# (change requires restart)
+@@ -118,7 +118,7 @@
+
+ # - Memory -
+
+-#shared_buffers = 32MB			# min 128kB
++shared_buffers = 1024MB			# min 128kB
+ 					# (change requires restart)
+ #huge_pages = try			# on, off, or try
+ 					# (change requires restart)
+@@ -127,8 +127,8 @@
+ 					# (change requires restart)
+ # Caution: it is not advisable to set max_prepared_transactions nonzero unless
+ # you actively intend to use prepared transactions.
+-#work_mem = 4MB				# min 64kB
+-#maintenance_work_mem = 64MB		# min 1MB
++work_mem = 6MB				# min 64kB
++maintenance_work_mem = 1024MB		# min 1MB
+ #autovacuum_work_mem = -1		# min 1MB, or -1 to use maintenance_work_mem
+ #max_stack_depth = 2MB			# min 100kB
+ #shared_memory_type = mmap		# the default is the first option
+@@ -220,10 +220,10 @@
+
+ # - Checkpoints -
+
+-#checkpoint_timeout = 5min		# range 30s-1d
+-#max_wal_size = 1GB
+-#min_wal_size = 80MB
+-#checkpoint_completion_target = 0.5	# checkpoint target duration, 0.0 - 1.0
++checkpoint_timeout = 10min		# range 30s-1d
++max_wal_size = 4GB
++min_wal_size = 256MB
++checkpoint_completion_target = 0.8	# checkpoint target duration, 0.0 - 1.0
+ #checkpoint_flush_after = 0		# measured in pages, 0 disables
+ #checkpoint_warning = 30s		# 0 disables
+
