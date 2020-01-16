@@ -37,5 +37,21 @@ yum install -y systemd-devel
 yum install -y rpm-build
 ```
 
-3. 
+3. 克隆本项目：
+
+```
+git clone git@github.com:guobo507/yhpg-12-rpmbuild.git
+cd ~/rpmbuild/SOURCES/
+
+# 将源文件放到此目录下：
+test -f postgresql-12.1.tar.bz2 || wget http://192.168.18.3/tools/postgresql/pg_source/postgresql-12.1.tar.bz2
+test -f postgresql-12-A4.pdf|| wget http://192.168.18.3/tools/postgresql/pg_source/postgresql-12-A4.pdf
+```
+
+4. 开始打包：
+
+```
+export PATH=/opt/rh/llvm-toolset-7/root/usr/bin:/opt/rh/devtoolset-7/root/usr/bin:$PATH
+rpmbuild -bb postgresql-12.spec
+```
 
