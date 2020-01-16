@@ -1,6 +1,6 @@
 # yhpg-12-rpmbuild
 
-自定义生成PG 12的RPM软件包。
+自定义生成PG 12的RPM软件包。参考项目：<https://github.com/dennis-apter/pgrpms>.
 
 1. 配置yum仓库，并安装依赖：
 
