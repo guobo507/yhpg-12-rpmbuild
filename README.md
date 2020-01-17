@@ -41,9 +41,11 @@
 
     ```
     git clone https://github.com/guobo507/yhpg-12-rpmbuild.git
+    cd yhpg-12-rpmbuild/
+    mkdir ./{BUILD,BUILDROOT,RPMS,SPECS,SRPMS}
+    
+    # 将PostgreSQL的源文件放到SOURCES目录下：
     cd yhpg-12-rpmbuild/rpmbuild/SOURCES/
-
-    # 将PostgreSQL的源文件放到此目录下：
     wget http://192.168.18.3/tools/postgresql/pg_source/postgresql-12.1.tar.bz2
     wget http://192.168.18.3/tools/postgresql/pg_source/postgresql-12-A4.pdf
     ```
